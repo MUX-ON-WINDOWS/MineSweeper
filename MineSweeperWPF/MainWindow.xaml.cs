@@ -23,17 +23,17 @@ namespace MineSweeperWPF
 
     public partial class MainWindow : Window
     {
-        private int points;
+        private int points = 0;
 
         List<int> mines = new List<int>();
         private int minecount = 10;
 
         private int heightCanvas = 6;
         private int widthCanvas = 9;
-        private int index;
 
         public MainWindow()
         {
+            gameBoard(points);
             InitializeComponent();
             genMines(minecount);
             genButtons();
@@ -46,11 +46,31 @@ namespace MineSweeperWPF
             foreach (int mine in mines)
             {
                 string buttonMineNumber = "btn" + mine.ToString();
+                int x = 0, y = 0;
+
+                int counter = 0;
+                int tempMine = Convert.ToInt32(button.Name.Substring(3));
+                while (tempMine >= 0)
+                {
+
+                    tempMine -= widthCanvas;
+
+                    if (tempMine < 0)
+                    {
+                        y = counter;
+                        x = tempMine + widthCanvas;
+                    }
+
+                    counter++;
+                }
+
+                //checkButtons(x, y);
 
                 if (buttonMineNumber == button.Name)
                 {
+                    
                     ImageBrush imageBrush = new ImageBrush();
-                    imageBrush.ImageSource = new BitmapImage(new Uri("minesweeperbomb.png", UriKind.Relative));
+                    imageBrush.ImageSource = new BitmapImage(new Uri("bomb.png", UriKind.Relative));
 
                     button.Background = imageBrush;
 
@@ -58,14 +78,124 @@ namespace MineSweeperWPF
                     return;
                 } else
                 {
-                    ImageBrush imageBrush = new ImageBrush();
-                    imageBrush.ImageSource = new BitmapImage(new Uri("number1minesweeper.png", UriKind.Relative));
+                    int count = 0;
+                    // RIGHT TOP
+                    if (mines.Contains((y - 1) * widthCanvas + (x + 1)))
+                        count++;
 
-                    button.Background = imageBrush;
+                    // TOP TOP
+                    if (mines.Contains((y - 1) * widthCanvas + x))
+                        count++;
+
+                    // LEFT TOP
+                    if (mines.Contains((y - 1) * widthCanvas + (x - 1)))
+                        count++;
+
+                    // MIDDLE LEFT
+                    if (mines.Contains(y * widthCanvas + (x - 1)))
+                        count++;
+
+                    // MIDDLE RIGHT
+                    if (mines.Contains(y * widthCanvas + (x + 1)))
+                        count++;
+
+                    // BOTTOM LEFT 
+                    if (mines.Contains((y + 1) * widthCanvas + (x -1)))
+                        count++;
+
+                    // BOTTOM BOTTOM
+                    if (mines.Contains((y + 1) * widthCanvas + x))
+                        count++;
+
+                    // BOTTOM RIGHT
+                    if (mines.Contains((y + 1) * widthCanvas + (x + 1)))
+                        count++;
+
+                  
+                    switch (count)
+                    {
+                        case 0:
+                        {
+                            button.IsEnabled = false;
+                            break;
+                        } 
+                        case 1:
+                        {
+                            ImageBrush imageBrush = new ImageBrush();
+                            imageBrush.ImageSource = new BitmapImage(new Uri("1.png", UriKind.Relative));
+
+                            button.Background = imageBrush;
+                            break;
+                        }
+                        case 2:
+                        {
+                            ImageBrush imageBrush = new ImageBrush();
+                            imageBrush.ImageSource = new BitmapImage(new Uri("2.png", UriKind.Relative));
+
+                            button.Background = imageBrush;
+                            break;
+                        }
+                        case 3:
+                        {
+                            ImageBrush imageBrush = new ImageBrush();
+                            imageBrush.ImageSource = new BitmapImage(new Uri("3.png", UriKind.Relative));
+
+                            button.Background = imageBrush;
+                            break;
+                        }
+                        case 4:
+                            {
+                                ImageBrush imageBrush = new ImageBrush();
+                                imageBrush.ImageSource = new BitmapImage(new Uri("4.png", UriKind.Relative));
+
+                                button.Background = imageBrush;
+                                break;
+                            }
+                        case 5:
+                            {
+                                ImageBrush imageBrush = new ImageBrush();
+                                imageBrush.ImageSource = new BitmapImage(new Uri("5.png", UriKind.Relative));
+
+                                button.Background = imageBrush;
+                                break;
+                            }
+                        case 6:
+                            {
+                                ImageBrush imageBrush = new ImageBrush();
+                                imageBrush.ImageSource = new BitmapImage(new Uri("6.png", UriKind.Relative));
+
+                                button.Background = imageBrush;
+                                break;
+                            }
+                        case 7:
+                            {
+                                ImageBrush imageBrush = new ImageBrush();
+                                imageBrush.ImageSource = new BitmapImage(new Uri("7.png", UriKind.Relative));
+
+                                button.Background = imageBrush;
+                                break;
+                            }
+                        case 8:
+                            {
+                                ImageBrush imageBrush = new ImageBrush();
+                                imageBrush.ImageSource = new BitmapImage(new Uri("8.png", UriKind.Relative));
+
+                                button.Background = imageBrush;
+                                break;
+                            }
+                        default:
+                            {
+                                button.IsEnabled = false;
+                                break;
+                            }
+                    }
+
+
                     // Check how many bombs are around the button.
                 }
             }
-        }     
+        } 
+        
         private void genButtons()
         {
             genCanvas.Children.Clear();
@@ -88,30 +218,28 @@ namespace MineSweeperWPF
                     Canvas.SetTop(button, y * 50);
 
                     genCanvas.Children.Add(button);
-
-                    
                 }
             }
-            foreach (int mine in mines)
-            {
-                for (int x = 0; x < widthCanvas; x++)
-                {
-                    for (int y = 0; y < heightCanvas; y++)
-                    {
-                        if (mine == y * widthCanvas + x)
-                        {
-                            Label label = new Label();
+            //foreach (int mine in mines)
+            //{
+            //    for (int x = 0; x < widthCanvas; x++)
+            //    {
+            //        for (int y = 0; y < heightCanvas; y++)
+            //        {
+            //            if (mine == y * widthCanvas + x)
+            //            {
+            //                Label label = new Label();
 
-                            Canvas.SetLeft(label, x * 50 + 20);
-                            Canvas.SetTop(label, y * 50);
+            //                Canvas.SetLeft(label, x * 50 + 20);
+            //                Canvas.SetTop(label, y * 50);
 
-                            genCanvas.Children.Add(label);
+            //                genCanvas.Children.Add(label);
 
-                            label.Content = mine;
-                        }
-                    } 
-                }
-            }
+            //                label.Content = mine;
+            //            }
+            //        } 
+            //    }
+            //}
         }
         private void genMines(int minecount)
         {
@@ -144,8 +272,8 @@ namespace MineSweeperWPF
 
         private void gameOver()
         {
-            string MessageBoxTitle = "Oh nee je blies op!";
-            string MessageBoxContent = "Opnieuw proberen?";
+            string MessageBoxTitle = "Opnieuw proberen?";
+            string MessageBoxContent = "Oh nee je blies op!";
 
             if (MessageBox.Show(MessageBoxTitle, MessageBoxContent, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
@@ -157,14 +285,27 @@ namespace MineSweeperWPF
             {
                 Close();
             }
+        }
 
+        private void gameBoard(int points)
+        {
+            if (points == 0) 
+            { 
+                return; 
+            } 
+            else 
+            { 
+                gameBoardText.Content = (points + " punten");       
+            }
         }
         private void reset_Click(object sender, RoutedEventArgs e)
         {
             genMines(minecount);
             genButtons();
-            MessageBox.Show("Nieuw spel?");
+            gameBoard(points);
+            MessageBox.Show("Nieuw spel begonnen");
             gameBoardText.Content = (points + " punten");
+
         }
     }
 }

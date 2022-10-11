@@ -19,5 +19,12 @@ C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\obj\Debug\net6.0-windo
 C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\obj\Debug\net6.0-windows\MineSweeperWPF.pdb
 C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\obj\Debug\net6.0-windows\MineSweeperWPF.genruntimeconfig.cache
 C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\obj\Debug\net6.0-windows\ref\MineSweeperWPF.dll
-C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\minesweeperbomb.png
-C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\number1minesweeper.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\1.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\bomb.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\2.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\3.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\4.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\5.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\6.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\7.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\8.png
