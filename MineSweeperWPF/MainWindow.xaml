@@ -13,6 +13,6 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="reset" Content="New Game" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Click="reset_Click" Height="32" Width="108"/>
         <Canvas x:Name="genCanvas" Margin="10,110,0,10"/>
-        <Label x:Name="gameBoardText" Content="Label" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Height="32" Width="108"/>
+        <Label x:Name="gameBoardText" Content="pionts: 0" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Height="32" Width="108"/>
     </Grid>
 </Window>

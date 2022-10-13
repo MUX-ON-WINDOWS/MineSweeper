@@ -28,3 +28,4 @@ C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windo
 C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\6.png
 C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\7.png
 C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\8.png
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\bin\Debug\net6.0-windows\flag.png

@@ -38,7 +38,16 @@ namespace MineSweeperWPF
             genMines(minecount);
             genButtons();
         }
-        
+        private void rightMouse(object sender, MouseButtonEventArgs e)
+        {
+            Button button = sender as Button;
+
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri("flag.png", UriKind.Relative));
+
+            button.Background = imageBrush;
+        }
+
         private void handelerButtonClick(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
@@ -212,6 +221,7 @@ namespace MineSweeperWPF
                     button.Width = 50;
                     button.Height = 50;
                     button.Click += handelerButtonClick;
+                    button.MouseRightButtonDown += rightMouse;
                     button.Name = giveName;
 
                     Canvas.SetLeft(button, x * 50 + 20);

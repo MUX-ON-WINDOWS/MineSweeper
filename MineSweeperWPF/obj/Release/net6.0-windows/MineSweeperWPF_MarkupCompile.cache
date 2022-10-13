@@ -1,18 +1,18 @@
 ﻿MineSweeperWPF
-1.0.0.0
+
 
 winexe
 C#
 .cs
-C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\obj\Debug\net6.0-windows\
+C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\obj\Release\net6.0-windows\
 MineSweeperWPF
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\arnou\source\repos\MineSweeperWPF\MineSweeperWPF\App.xaml
 11407045341
 
-52011200632
+3-1233169557
 194-200944676
 MainWindow.xaml;
 
