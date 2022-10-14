@@ -40,12 +40,18 @@ namespace MineSweeperWPF
         }
         private void rightMouse(object sender, MouseButtonEventArgs e)
         {
+            
             Button button = sender as Button;
 
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("flag.png", UriKind.Relative));
-
-            button.Background = imageBrush;
+            if (button.Background == Brushes.LightGray)
+            {
+                ImageBrush flagButton = new ImageBrush();
+                flagButton.ImageSource = new BitmapImage(new Uri("flag.png", UriKind.Relative));
+                button.Background = flagButton;
+            } else
+            {
+                button.Background = Brushes.LightGray;
+            }
         }
 
         private void handelerButtonClick(object sender, RoutedEventArgs e)
@@ -223,6 +229,7 @@ namespace MineSweeperWPF
                     button.Click += handelerButtonClick;
                     button.MouseRightButtonDown += rightMouse;
                     button.Name = giveName;
+                    button.Background = Brushes.LightGray;
 
                     Canvas.SetLeft(button, x * 50 + 20);
                     Canvas.SetTop(button, y * 50);
